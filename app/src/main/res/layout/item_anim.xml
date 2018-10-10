@@ -1,38 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/_8sdp"
-    android:layout_marginTop="@dimen/_4sdp"
-    android:layout_marginEnd="@dimen/_8sdp"
-    android:layout_marginBottom="@dimen/_4sdp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/ivPreview"
-        android:layout_width="@dimen/_80sdp"
-        android:layout_height="@dimen/_80sdp"
-        android:contentDescription="@string/anim_preview"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+    <data class="AnimItemBinding">
 
-    <TextView
-        android:id="@+id/tvAnimTitle"
-        android:layout_width="0dp"
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="item"
+            type="com.birjuvachhani.vectoranimations.model.VectorModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginEnd="@dimen/_16sdp"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/_18ssp"
-        app:layout_constraintBottom_toBottomOf="@+id/ivPreview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ivPreview"
-        app:layout_constraintTop_toTopOf="@+id/ivPreview"
-        tools:text="@string/anim_title_placeholder" />
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        app:cardBackgroundColor="#FFF"
+        app:cardElevation="2dp">
 
-</android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivPreview"
+                android:layout_width="@dimen/_48sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_16sdp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/anim_preview"
+                android:scaleType="centerInside"
+                app:imageRes="@{item.thumbnail}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tvAnimTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/work_sans_semi_bold"
+                android:maxLines="2"
+                android:text="@{item.name}"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivPreview"
+                app:layout_constraintTop_toBottomOf="@id/ivPreview"
+                app:layout_goneMarginStart="@dimen/_8sdp"
+                tools:text="@string/anim_title_placeholder" />
+
+            <TextView
+                android:id="@+id/tvAnimType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/work_sans_semi_bold"
+                android:maxLines="2"
+                android:text="AVD"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#828282"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivPreview"
+                app:layout_constraintTop_toBottomOf="@id/ivPreview"
+                app:layout_goneMarginStart="@dimen/_8sdp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

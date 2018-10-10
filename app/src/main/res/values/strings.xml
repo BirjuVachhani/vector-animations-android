@@ -3,4 +3,12 @@
     <string name="app_title">Vector\nAnimations</string>
     <string name="anim_title_placeholder">Anim\nTitle</string>
     <string name="anim_preview">Anim Preview</string>
+
+
+    <string-array name="anim_names">
+        <item>Progress And Done</item>
+        <item>Heartbeat Loader</item>
+        <item>Journal Tilt</item>
+        <item>Profile Bounce</item>
+    </string-array>
 </resources>
