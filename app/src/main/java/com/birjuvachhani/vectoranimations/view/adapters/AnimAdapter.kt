@@ -25,6 +25,9 @@ class AnimAdapter(var listener: ItemClickListener) : RecyclerView.Adapter<Vector
     override fun onBindViewHolder(holder: VectorViewHolder, position: Int) {
         holder.mBinding.item = animList[position]
         holder.mBinding.executePendingBindings()
+        holder.mBinding.root.setOnClickListener {
+            listener.onItemClick(animList[holder.adapterPosition])
+        }
     }
 
     fun setList(animList: ArrayList<VectorModel>) {
